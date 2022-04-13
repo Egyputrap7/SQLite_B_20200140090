@@ -15,42 +15,43 @@ import java.util.HashMap;
 
 public class TemanBaru extends AppCompatActivity {
 
-    private TextInputEditText txtNama, txtTelepon;
+    private TextInputEditText tNama, tTelpon;
     private Button simpanBtn;
-    String nm, tlp;
-    DBcontrol control = new DBcontrol(this);
+    String nm,tlp;
+    DBcontrol controller = new DBcontrol(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teman_baru);
 
-        txtNama = (TextInputEditText) findViewById(R.id.tietNama);
-        txtTelepon = (TextInputEditText) findViewById(R.id.tietTelpon);
+        tNama = (TextInputEditText) findViewById(R.id.tietNama);
+        tTelpon = (TextInputEditText) findViewById(R.id.tietTelepon);
         simpanBtn = (Button) findViewById(R.id.buttonSave);
 
         simpanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (txtNama.getText().toString().isEmpty() || txtTelepon.getText().toString().isEmpty()) {
+                if(tNama.getText().toString().isEmpty() || tTelpon.getText().toString().isEmpty()){
                     Toast.makeText(getApplicationContext(), "Data Belum komplit !", Toast.LENGTH_SHORT).show();
 
-                } else {
-                    nm = txtNama.getText().toString();
-                    tlp = txtTelepon.getText().toString();
+                }
+                else{
+                    nm = tNama.getText().toString();
+                    tlp = tTelpon.getText().toString();
 
-                    HashMap<String, String> qValues = new HashMap<>();
-                    qValues.put("nama", nm);
-                    qValues.put("telpon", tlp);
+                    HashMap<String,String> qvalues = new HashMap<>();
+                    qvalues.put("nama", nm);
+                    qvalues.put("telpon", tlp);
 
-                    control.insertData(qValues);
+                    controller.insertData(qvalues);
                     callHome();
                 }
             }
         });
     }
 
-    public void callHome() {
+    public  void  callHome(){
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
         finish();

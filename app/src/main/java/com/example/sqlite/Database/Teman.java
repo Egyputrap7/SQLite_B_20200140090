@@ -3,16 +3,16 @@ package com.example.sqlite.Database;
 public class Teman {
 
     // Variable String yg sama pada DBController
-    String id,nama,telepon;
+    String id,nama,telpon;
 
     public Teman() {
 
     }
 
-    public Teman(String id, String nama, String telepon) {
+    public Teman(String id, String nama, String telpon) {
         this.id = id;
         this.nama = nama;
-        this.telepon = telepon;
+        this.telpon = telpon;
     }
 
     public String getId() {
@@ -31,11 +31,11 @@ public class Teman {
         this.nama = nama;
     }
 
-    public String getTelepon() {
-        return telepon;
+    public String getTelpon() {
+        return telpon;
     }
 
-    public void setTelepon(String telepon) {
-        this.telepon = telepon;
+    public void setTelpon(String telpon) {
+        this.telpon = telpon;
     }
 }
